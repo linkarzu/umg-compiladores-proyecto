@@ -229,6 +229,11 @@ alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.13.1-complete.jar:$CLASS
 alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
 ```
 
+### Instalar ANTRL en Windows
+
+- Los pasos para instalarlo se
+  [encuentran acá](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md#windows)
+
 ### Creacion de la Gramatica en ANTLR
 
 - Voy a crear el siguiente archivo `comandosDron.g4` con los comandos a
