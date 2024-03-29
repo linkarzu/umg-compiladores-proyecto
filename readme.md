@@ -216,6 +216,12 @@ cd /usr/local/lib
 sudo curl -O https://www.antlr.org/download/antlr-4.13.1-complete.jar
 ```
 
+- Tengo que agregar `antlr-4.13.1-complete.jar` a mi `CLASSPATH`
+
+```bash
+export CLASSPATH=".:/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
+```
+
 - Crear aliases para ANTLR Tool y para TestRig en mi archivo .zshrc
 
 ```bash
