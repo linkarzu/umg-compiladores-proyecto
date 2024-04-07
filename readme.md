@@ -452,3 +452,38 @@ echo 'ROTAR ADELANTE 30' | grun comandosDron comando -tree
 ❯ echo 'ROTAR ADELANTE 30' | grun comandosDron comando -tree
 (comando (accion ROTAR (direccion ADELANTE)) (parametro 30) <EOF>)
 ```
+
+## Tarea 3
+- Vamos a realizar un arbol sintactico para cada una de las acciones del lenguaje creado, para esto vamos a usar las una flag de grun la cual validara graficamente el arbol con la entrada que ingresemos `-gui`
+
+```bash
+echo 'ENCENDER_MOTOR' | grun comandosDron comando -gui
+
+```
+
+```bash
+echo 'APAGAR_MOTOR' | grun comandosDron comando -gui
+```
+
+```bash
+echo 'GIRAR DERECHA 90' | grun comandosDron comando -gui
+```
+
+
+```bash
+echo 'ELEVARSE 10' | grun comandosDron comando -gui
+
+```
+
+```bash
+echo 'BAJAR 5' | grun comandosDron comando -gui
+```
+
+```bash
+echo 'ROTAR IZQUIERDA 30' | grun comandosDron comando -gui
+```
+
+```bash
+echo 'REGRESAR_BASE' | grun comandosDron comando -gui
+ ```
+
