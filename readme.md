@@ -234,6 +234,42 @@ alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPA
 - Los pasos para instalarlo se
   [encuentran acá](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md#windows)
 
+### Instalar ANTLR en Linux
+
+- Para instalar ANTLR se tienen que instalar los siguientes requerimientos desde
+  PIP.
+
+```bash
+pip install antlr4-tools
+```
+
+- Con esto se instalaran los siguientes paquetes
+
+```bash
+pip show antlr4-tools
+Name: antlr4-tools
+Version: 0.2.1
+Summary: Tools to run ANTLR4 tool and grammar interpreter/profiler
+Home-page: http://www.antlr.org
+Author: Terence Parr
+Author-email: parrt@antlr.org
+License: BSD
+Location: /home/borellana/.local/lib/python3.11/site-packages
+Requires: install-jdk
+Required-by:
+pip show antlr4-tools
+Name: antlr4-tools
+Version: 0.2.1
+Summary: Tools to run ANTLR4 tool and grammar interpreter/profiler
+Home-page: http://www.antlr.org
+Author: Terence Parr
+Author-email: parrt@antlr.org
+License: BSD
+Location: /home/borellana/.local/lib/python3.11/site-packages
+Requires: install-jdk
+Required-by:
+```
+
 ### Creacion de la Gramatica en ANTLR
 
 - Voy a crear el siguiente archivo `comandosDron.g4` con los comandos a
