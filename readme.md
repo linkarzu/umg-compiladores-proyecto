@@ -15,8 +15,15 @@
   - [Descripcion tarea 2](#descripcion-tarea-2)
   - [Resumen tarea 2](#resumen-tarea-2)
   - [Instalar ANTLR en macOS](#instalar-antlr-en-macos)
+  - [Instalar ANTRL en Windows](#instalar-antrl-en-windows)
+  - [Instalar ANTLR en Linux](#instalar-antlr-en-linux)
   - [Creacion de la Gramatica en ANTLR](#creacion-de-la-gramatica-en-antlr)
   - [Prueba de la gramatica con ANTLR](#prueba-de-la-gramatica-con-antlr)
+- [Tarea 3: Arbol sintactico](#tarea-3-arbol-sintactico)
+  - [Participantes tarea 3](#participantes-tarea-3)
+  - [Descripcion tarea 3](#descripcion-tarea-3)
+  - [Resumen tarea 3](#resumen-tarea-3)
+  - [Creacion arboles sintacticos](#creacion-arboles-sintacticos)
 
 <!-- tocstop -->
 
@@ -489,8 +496,6 @@ echo 'ROTAR ADELANTE 30' | grun comandosDron comando -tree
 (comando (accion ROTAR (direccion ADELANTE)) (parametro 30) <EOF>)
 ```
 
-## Tarea 3
-- Vamos a realizar un arbol sintactico para cada una de las acciones del lenguaje creado, para esto vamos a usar las una flag de grun la cual validara graficamente el arbol con la entrada que ingresemos `-gui`
 ## Tarea 3: Arbol sintactico
 
 ### Participantes tarea 3
@@ -517,7 +522,6 @@ echo 'ROTAR ADELANTE 30' | grun comandosDron comando -tree
 
 ```bash
 echo 'ENCENDER_MOTOR' | grun comandosDron comando -gui
-
 ```
 
 ```bash
@@ -528,10 +532,8 @@ echo 'APAGAR_MOTOR' | grun comandosDron comando -gui
 echo 'GIRAR DERECHA 90' | grun comandosDron comando -gui
 ```
 
-
 ```bash
 echo 'ELEVARSE 10' | grun comandosDron comando -gui
-
 ```
 
 ```bash
@@ -544,5 +546,4 @@ echo 'ROTAR IZQUIERDA 30' | grun comandosDron comando -gui
 
 ```bash
 echo 'REGRESAR_BASE' | grun comandosDron comando -gui
- ```
-
+```
