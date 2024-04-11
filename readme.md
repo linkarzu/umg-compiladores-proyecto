@@ -528,7 +528,7 @@ echo 'ENCENDER_MOTOR' | grun comandosDron comando -gui
   <img
     src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/01-ENCENDER_MOTOR.png?raw=true"
     alt=""
-    width="600"
+    width="400"
   />
 </div>
 
@@ -542,7 +542,7 @@ echo 'APAGAR_MOTOR' | grun comandosDron comando -gui
   <img
     src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/02-APAGAR_MOTOR.png?raw=true"
     alt=""
-    width="600"
+    width="400"
   />
 </div>
 
@@ -556,7 +556,7 @@ echo 'GIRAR DERECHA 90' | grun comandosDron comando -gui
   <img
     src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/03-GIRAR-DERECHA-90.png?raw=true"
     alt=""
-    width="600"
+    width="400"
   />
 </div>
 
@@ -570,7 +570,7 @@ echo 'ELEVARSE 10' | grun comandosDron comando -gui
   <img
     src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/04-ELEVARSE-10.png?raw=true"
     alt=""
-    width="600"
+    width="400"
   />
 </div>
 
@@ -584,7 +584,7 @@ echo 'BAJAR 5' | grun comandosDron comando -gui
   <img
     src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/05-BAJAR-5.png?raw=true"
     alt=""
-    width="600"
+    width="400"
   />
 </div>
 
@@ -598,7 +598,7 @@ echo 'ROTAR IZQUIERDA 30' | grun comandosDron comando -gui
   <img
     src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/06-ROTAR-IZQUIERDA-30.png?raw=true"
     alt=""
-    width="600"
+    width="400"
   />
 </div>
 
@@ -612,6 +612,6 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
   <img
     src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/07-REGRESAR-BASE.png?raw=true"
     alt=""
-    width="600"
+    width="400"
   />
 </div>
