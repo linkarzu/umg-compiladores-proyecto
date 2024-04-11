@@ -524,26 +524,94 @@ echo 'ROTAR ADELANTE 30' | grun comandosDron comando -tree
 echo 'ENCENDER_MOTOR' | grun comandosDron comando -gui
 ```
 
+<div align="center">
+  <img
+    src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/01-ENCENDER_MOTOR.png?raw=true"
+    alt=""
+    width="600"
+  />
+</div>
+
+---
+
 ```bash
 echo 'APAGAR_MOTOR' | grun comandosDron comando -gui
 ```
+
+<div align="center">
+  <img
+    src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/02-APAGAR_MOTOR.png?raw=true"
+    alt=""
+    width="600"
+  />
+</div>
+
+---
 
 ```bash
 echo 'GIRAR DERECHA 90' | grun comandosDron comando -gui
 ```
 
+<div align="center">
+  <img
+    src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/03-GIRAR-DERECHA-90.png?raw=true"
+    alt=""
+    width="600"
+  />
+</div>
+
+---
+
 ```bash
 echo 'ELEVARSE 10' | grun comandosDron comando -gui
 ```
+
+<div align="center">
+  <img
+    src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/04-ELEVARSE-10.png?raw=true"
+    alt=""
+    width="600"
+  />
+</div>
+
+---
 
 ```bash
 echo 'BAJAR 5' | grun comandosDron comando -gui
 ```
 
+<div align="center">
+  <img
+    src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/05-BAJAR-5.png?raw=true"
+    alt=""
+    width="600"
+  />
+</div>
+
+---
+
 ```bash
 echo 'ROTAR IZQUIERDA 30' | grun comandosDron comando -gui
 ```
 
+<div align="center">
+  <img
+    src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/06-ROTAR-IZQUIERDA-30.png?raw=true"
+    alt=""
+    width="600"
+  />
+</div>
+
+---
+
 ```bash
 echo 'REGRESAR_BASE' | grun comandosDron comando -gui
 ```
+
+<div align="center">
+  <img
+    src="https://github.com/linkarzu/umg-compiladores-proyecto/blob/master/imagenes/arbol-sintactico/07-REGRESAR-BASE.png?raw=true"
+    alt=""
+    width="600"
+  />
+</div>
