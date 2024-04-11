@@ -491,6 +491,29 @@ echo 'ROTAR ADELANTE 30' | grun comandosDron comando -tree
 
 ## Tarea 3
 - Vamos a realizar un arbol sintactico para cada una de las acciones del lenguaje creado, para esto vamos a usar las una flag de grun la cual validara graficamente el arbol con la entrada que ingresemos `-gui`
+## Tarea 3: Arbol sintactico
+
+### Participantes tarea 3
+
+| Nombre         | Participación |
+| -------------- | ------------- |
+| Christian Arzu | 100%          |
+| Bryan Orellana | 100%          |
+
+### Descripcion tarea 3
+
+- Elabore el árbol sintáctico para cada una de las instrucciones de la gramática
+  de su proyecto.
+- Utilice entradas a manera de ejemplo de la gramática que ha diseñado para su
+  proyecto.
+
+### Resumen tarea 3
+
+- Vamos a realizar un arbol sintactico para cada una de las acciones del
+  lenguaje creado, para esto vamos a usar las una flag de grun la cual validara
+  graficamente el arbol con la entrada que ingresemos `-gui`
+
+### Creacion arboles sintacticos
 
 ```bash
 echo 'ENCENDER_MOTOR' | grun comandosDron comando -gui
