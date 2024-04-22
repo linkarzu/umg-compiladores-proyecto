@@ -24,6 +24,12 @@
   - [Descripcion tarea 3](#descripcion-tarea-3)
   - [Resumen tarea 3](#resumen-tarea-3)
   - [Creacion arboles sintacticos](#creacion-arboles-sintacticos)
+- [Tarea 4: Analisis semantico errores](#tarea-4-analisis-semantico-errores)
+  - [Participantes tarea 4](#participantes-tarea-4)
+  - [Descripcion tarea 4](#descripcion-tarea-4)
+  - [Resumen tarea 4](#resumen-tarea-4)
+  - [Descripcion de errores semanticos](#descripcion-de-errores-semanticos)
+  - [Casos que NO son errores semanticos (pero parecen)](#casos-que-no-son-errores-semanticos-pero-parecen)
 
 <!-- tocstop -->
 
@@ -613,3 +619,114 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
     width="400"
   />
 </div>
+
+## Tarea 4: Analisis semantico errores
+
+### Participantes tarea 4
+
+| Nombre         | Participación |
+| -------------- | ------------- |
+| Christian Arzu | 100%          |
+| Bryan Orellana | 100%          |
+
+### Descripcion tarea 4
+
+- Describa los errores semánticos que podrían darse en la gramática definida
+  para su proyecto.
+- Describa el manejo de errores para los errores identificados en el inciso
+  anterior.
+- No olvidar colocar la producción correspondiente de la gramática.
+
+### Resumen tarea 4
+
+- Esta tarea no nos pide arreglar errores semánticos, sino que nos pide
+  describir los posibles errores que podríamos encontrar y cómo los
+  manejaríamos. Por lo que incluímos una lista de los posibles errores y la
+  forma de solucionarlos
+
+### Descripcion de errores semanticos
+
+- Como hemos en visto en las últimas sesiones en la clase, los errores
+  semánticos son los que tienen instrucciones sintácticamente válidas, pero
+  carecen de coherencia por lo que no es posible ejecutarlas.
+- En nuestro proyecto de drones, esto significaría ingresar comandos válidos al
+  dron, como por ejemplo tratar de mover el dron si está apagado.
+  - El comando para mover el dron es válido, pero por lógica, sabemos que no
+    podemos mover el dron si está apagado.
+- A continuación, describimos algunos errores semánticos posibles y cómo
+  manejarlos para la gramática definida:
+
+---
+
+- 1. Comando de movimiento sin motor encendido
+  - **Producción gramatical**: `<comando> ::= <accion>`
+  - **Error semántico**: Ejecutar cualquier acción de movimiento (`GIRAR`,
+    `ELEVARSE`, `BAJAR`, `ROTAR`, `REGRESAR_BASE`) cuando el motor está apagado.
+  - **Manejo del error**: Antes de ejecutar un comando de movimiento, verificar
+    si el motor está encendido. Si no, generar un error específico:
+    - `Motor apagado: No se puede ejecutar el comando <comando>.`
+
+---
+
+- 2. Encender un motor ya encendido
+  - **Producción gramatical**: `<accion> ::= ENCENDER_MOTOR`
+  - **Error semántico**: Intentar encender el motor cuando ya está encendido.
+  - **Manejo del error**: Mantener un estado del motor dentro del sistema. Si se
+    envía el comando `ENCENDER_MOTOR` y el motor ya está encendido, generar un
+    error:
+    - `Motor ya encendido.`
+
+---
+
+- 3. Apagar un motor ya apagado
+  - **Producción gramatical**: `<accion> ::= APAGAR_MOTOR`
+  - **Error semántico**: Intentar apagar el motor cuando ya está apagado.
+  - **Manejo del error**: Si se envía el comando `APAGAR_MOTOR` y el motor está
+    apagado, generar un error:
+    - `Motor ya apagado.`
+
+---
+
+- 4. Comando `REGRESAR_BASE` ejecutado sin condiciones adecuadas
+  - **Producción gramatical**: `<accion> ::= REGRESAR_BASE`
+  - **Error semántico**: Ejecutar el comando `REGRESAR_BASE` sin haber realizado
+    movimientos previos o sin estar en modo de vuelo activo.
+  - **Manejo del error**: Validar que se hayan realizado movimientos previos o
+    que el dron esté en un estado adecuado para regresar a la base. Si no,
+    emitir un error:
+    - `Operación no válida: No se puede regresar a la base sin haberse movido`
+
+---
+
+- 5. Bajar más de lo que se ha subido
+  - **Producción gramatical**: `<accion> ::= BAJAR <cantidad>`
+  - **Error semántico**: Intentar bajar el dron una cantidad mayor a la que
+    previamente se elevó.
+  - **Manejo del error**: Verificar la altura actual del dron antes de permitir
+    un movimiento descendente. Si la cantidad a bajar supera la altura acumulada
+    por ascensos previos, generar un error:
+    - `Operación no válida: Intento de bajar más de lo ascendido. Altura máxima excedida.`
+
+---
+
+- 6. Mover el dron más allá de sus límites operativos
+  - **Producción gramatical**:
+    - `<accion> ::= GIRAR <direccion> <cantidad>`
+    - `ELEVARSE <cantidad>`
+    - `ROTAR <direccion> <cantidad>`
+  - **Error semántico**: Intentar mover el dron en cualquier dirección más allá
+    de los límites físicos o de seguridad establecidos.
+  - **Manejo del error**: Antes de ejecutar movimientos, verificar que las
+    dimensiones del movimiento no excedan los límites establecidos. Si se
+    intenta un movimiento que excede estos límites, emitir un error:
+    - `Operación no válida: Movimiento excede los límites seguros del dron.`
+
+### Casos que NO son errores semanticos (pero parecen)
+
+- Uso de valores no numéricos en comandos que requieren números
+  - Esto no es un error semántico, ya que nuestra gramática especificamente
+    solicita que la cantidad sea un número
+- Comando `GIRAR` o `ROTAR` sin especificación de dirección o cantidad
+  - Esto no es un error semántico, ya que la gramática solicita que se ingrese
+    una dirección y cantidad al ingresar cualquiera de los comandos GIRAR o
+    ROTAR
