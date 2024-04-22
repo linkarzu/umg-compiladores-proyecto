@@ -97,17 +97,15 @@ NUMERO -> [0-9]+ ('.' [0-9]+)?
 - La sintaxis define cómo se organizan los tokens para formar instrucciones.
 
 ```bash
-<comando>: Define una instrucción completa para el dron. Algunos comandos pueden requerir parámetros adicionales.
-<comando> ::= <accion> <parametro>?
+<comando> ::= <accion>
 <accion> ::= ENCENDER_MOTOR
            | APAGAR_MOTOR
-           | GIRAR <direccion>
+           | GIRAR <direccion> <cantidad>
            | ELEVARSE <cantidad>
            | BAJAR <cantidad>
-           | ROTAR <direccion>
+           | ROTAR <direccion> <cantidad>
            | REGRESAR_BASE
 
-<parametro> ::= NUMERO
 <direccion> ::= 'DERECHA' | 'IZQUIERDA' | 'ADELANTE' | 'ATRAS'
 <cantidad> ::= NUMERO
 ```
@@ -116,8 +114,6 @@ NUMERO -> [0-9]+ ('.' [0-9]+)?
   - `<comando>`: Define una instrucción completa para el dron. Algunos comandos
     pueden requerir parámetros adicionales.
   - `<accion>`: Representa una acción específica que el dron puede realizar.
-  - `<parametro>`: Especifica los parámetros que pueden ser requeridos por
-    ciertas acciones, como la distancia o el ángulo.
   - `<direccion>`: Usada con los comandos de girar y rotar para especificar la
     dirección.
   - `<cantidad>`: Representa un valor numérico utilizado para especificar cuánto
