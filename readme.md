@@ -299,10 +299,12 @@ comando
 accion
     : ENCENDER_MOTOR
     | APAGAR_MOTOR
-    | GIRAR direccion cantidad // 'GIRAR' requiere una dirección y una cantidad
+    // 'GIRAR' requiere una dirección y una cantidad
+    | GIRAR direccion cantidad
     | ELEVARSE cantidad
     | BAJAR cantidad
-    | ROTAR direccion cantidad // 'ROTAR' también requiere una dirección y una cantidad
+    // 'ROTAR' requiere una dirección y una cantidad
+    | ROTAR direccion cantidad
     | REGRESAR_BASE
     ;
 
