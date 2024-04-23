@@ -721,6 +721,23 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
     intenta un movimiento que excede estos límites, emitir un error:
     - `Operación no válida: Movimiento excede los límites seguros del dron.`
 
+---
+
+- 7. Mover el dron en una cantidad no válida
+  - **Producción gramatical**:
+    - `<accion> ::= GIRAR <direccion> <cantidad>`
+    - `ROTAR <direccion> <cantidad>`
+    - `ELEVARSE <cantidad>`
+    - `BAJAR <cantidad>`
+  - **Error semántico**: Intentar mover el dron una cantidad negativa o cero
+    grados.
+  - **Manejo del error**: Validar que la cantidad especificada para mover el
+    dron sea mayor a cero. Si se ingresa una cantidad no válida, generar un
+    error:
+    - `Operación no válida: La cantidad para mover el dron debe ser mayor a cero.`
+
+---
+
 ### Casos que NO son errores semanticos (pero parecen)
 
 - Uso de valores no numéricos en comandos que requieren números
