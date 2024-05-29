@@ -226,6 +226,7 @@ sudo curl -O https://www.antlr.org/download/antlr-4.13.1-complete.jar
 ```
 
 - Tengo que agregar `antlr-4.13.1-complete.jar` a mi `CLASSPATH`
+  - Esto lo tengo que agregar a mi archivo .zshrc
 
 ```bash
 export CLASSPATH=".:/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
