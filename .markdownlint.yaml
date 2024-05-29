@@ -22,3 +22,7 @@ MD013:
 MD033:
   false
   # allowed_elements: ["a", "img", "div"]
+
+# Unordered list style
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/md004.md
+MD004: false

@@ -27,15 +27,25 @@ public interface comandosDronListener extends ParseTreeListener {
 	 */
 	void exitAccion(comandosDronParser.AccionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link comandosDronParser#direccion}.
+	 * Enter a parse tree produced by {@link comandosDronParser#direccionGiro}.
 	 * @param ctx the parse tree
 	 */
-	void enterDireccion(comandosDronParser.DireccionContext ctx);
+	void enterDireccionGiro(comandosDronParser.DireccionGiroContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link comandosDronParser#direccion}.
+	 * Exit a parse tree produced by {@link comandosDronParser#direccionGiro}.
 	 * @param ctx the parse tree
 	 */
-	void exitDireccion(comandosDronParser.DireccionContext ctx);
+	void exitDireccionGiro(comandosDronParser.DireccionGiroContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link comandosDronParser#direccionRotacion}.
+	 * @param ctx the parse tree
+	 */
+	void enterDireccionRotacion(comandosDronParser.DireccionRotacionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link comandosDronParser#direccionRotacion}.
+	 * @param ctx the parse tree
+	 */
+	void exitDireccionRotacion(comandosDronParser.DireccionRotacionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link comandosDronParser#cantidad}.
 	 * @param ctx the parse tree

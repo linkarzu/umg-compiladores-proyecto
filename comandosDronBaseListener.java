@@ -40,13 +40,25 @@ public class comandosDronBaseListener implements comandosDronListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDireccion(comandosDronParser.DireccionContext ctx) { }
+	@Override public void enterDireccionGiro(comandosDronParser.DireccionGiroContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDireccion(comandosDronParser.DireccionContext ctx) { }
+	@Override public void exitDireccionGiro(comandosDronParser.DireccionGiroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDireccionRotacion(comandosDronParser.DireccionRotacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDireccionRotacion(comandosDronParser.DireccionRotacionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

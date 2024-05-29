@@ -4,32 +4,38 @@
 
 - [Descripcion del proyecto](#descripcion-del-proyecto)
 - [Tarea 1: Definir la gramatica del proyecto](#tarea-1-definir-la-gramatica-del-proyecto)
-  - [Participantes tarea 1](#participantes-tarea-1)
-  - [Descripcion tarea 1](#descripcion-tarea-1)
-  - [Resumen tarea 1](#resumen-tarea-1)
-  - [Creacion de tokens](#creacion-de-tokens)
-  - [Creacion de la sintaxis](#creacion-de-la-sintaxis)
-  - [Ejemplos de la sintaxis](#ejemplos-de-la-sintaxis)
+  * [Participantes tarea 1](#participantes-tarea-1)
+  * [Descripcion tarea 1](#descripcion-tarea-1)
+  * [Resumen tarea 1](#resumen-tarea-1)
+  * [Creacion de tokens](#creacion-de-tokens)
+  * [Creacion de la sintaxis](#creacion-de-la-sintaxis)
+  * [Ejemplos de la sintaxis](#ejemplos-de-la-sintaxis)
 - [Tarea 2: Instalar herramienta generacion compiladores](#tarea-2-instalar-herramienta-generacion-compiladores)
-  - [Participantes tarea 2](#participantes-tarea-2)
-  - [Descripcion tarea 2](#descripcion-tarea-2)
-  - [Resumen tarea 2](#resumen-tarea-2)
-  - [Instalar ANTLR en macOS](#instalar-antlr-en-macos)
-  - [Instalar ANTRL en Windows](#instalar-antrl-en-windows)
-  - [Instalar ANTLR en Linux](#instalar-antlr-en-linux)
-  - [Creacion de la Gramatica en ANTLR](#creacion-de-la-gramatica-en-antlr)
-  - [Prueba de la gramatica con ANTLR](#prueba-de-la-gramatica-con-antlr)
+  * [Participantes tarea 2](#participantes-tarea-2)
+  * [Descripcion tarea 2](#descripcion-tarea-2)
+  * [Resumen tarea 2](#resumen-tarea-2)
+  * [Instalar ANTLR en macOS](#instalar-antlr-en-macos)
+  * [Instalar ANTRL en Windows](#instalar-antrl-en-windows)
+  * [Instalar ANTLR en Linux](#instalar-antlr-en-linux)
+  * [Creacion de la Gramatica en ANTLR](#creacion-de-la-gramatica-en-antlr)
+  * [Prueba de la gramatica con ANTLR](#prueba-de-la-gramatica-con-antlr)
 - [Tarea 3: Arbol sintactico](#tarea-3-arbol-sintactico)
-  - [Participantes tarea 3](#participantes-tarea-3)
-  - [Descripcion tarea 3](#descripcion-tarea-3)
-  - [Resumen tarea 3](#resumen-tarea-3)
-  - [Creacion arboles sintacticos](#creacion-arboles-sintacticos)
+  * [Participantes tarea 3](#participantes-tarea-3)
+  * [Descripcion tarea 3](#descripcion-tarea-3)
+  * [Resumen tarea 3](#resumen-tarea-3)
+  * [Creacion arboles sintacticos](#creacion-arboles-sintacticos)
 - [Tarea 4: Analisis semantico errores](#tarea-4-analisis-semantico-errores)
-  - [Participantes tarea 4](#participantes-tarea-4)
-  - [Descripcion tarea 4](#descripcion-tarea-4)
-  - [Resumen tarea 4](#resumen-tarea-4)
-  - [Descripcion de errores semanticos](#descripcion-de-errores-semanticos)
-  - [Casos que NO son errores semanticos (pero parecen)](#casos-que-no-son-errores-semanticos-pero-parecen)
+  * [Participantes tarea 4](#participantes-tarea-4)
+  * [Descripcion tarea 4](#descripcion-tarea-4)
+  * [Resumen tarea 4](#resumen-tarea-4)
+  * [Descripcion de errores semanticos](#descripcion-de-errores-semanticos)
+  * [Casos que NO son errores semanticos (pero parecen)](#casos-que-no-son-errores-semanticos-pero-parecen)
+- [Tarea 5: Entrega Final](#tarea-5-entrega-final)
+  * [Participantes tarea 5](#participantes-tarea-5)
+  * [Descripcion tarea 5](#descripcion-tarea-5)
+  * [Herramienta utilizada y porque](#herramienta-utilizada-y-porque)
+  * [Gramatica del lenguaje](#gramatica-del-lenguaje)
+  * [Evidencias de la ejecucion](#evidencias-de-la-ejecucion)
 
 <!-- tocstop -->
 
@@ -661,7 +667,7 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
 
 - 1. Comando de movimiento sin motor encendido
   - **Producción gramatical**: `<comando> ::= <accion>`
-  - **Error semántico**: Ejecutar cualquier acción de movimiento (`GIRAR`,
+  - **ERROR SEMÁNTICO**: Ejecutar cualquier acción de movimiento (`GIRAR`,
     `ELEVARSE`, `BAJAR`, `ROTAR`, `REGRESAR_BASE`) cuando el motor está apagado.
   - **Manejo del error**: Antes de ejecutar un comando de movimiento, verificar
     si el motor está encendido. Si no, generar un error específico:
@@ -671,7 +677,7 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
 
 - 2. Encender un motor ya encendido
   - **Producción gramatical**: `<accion> ::= ENCENDER_MOTOR`
-  - **Error semántico**: Intentar encender el motor cuando ya está encendido.
+  - **ERROR SEMÁNTICO**: Intentar encender el motor cuando ya está encendido.
   - **Manejo del error**: Mantener un estado del motor dentro del sistema. Si se
     envía el comando `ENCENDER_MOTOR` y el motor ya está encendido, generar un
     error:
@@ -681,7 +687,7 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
 
 - 3. Apagar un motor ya apagado
   - **Producción gramatical**: `<accion> ::= APAGAR_MOTOR`
-  - **Error semántico**: Intentar apagar el motor cuando ya está apagado.
+  - **ERROR SEMÁNTICO**: Intentar apagar el motor cuando ya está apagado.
   - **Manejo del error**: Si se envía el comando `APAGAR_MOTOR` y el motor está
     apagado, generar un error:
     - `Motor ya apagado.`
@@ -690,7 +696,7 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
 
 - 4. Comando `REGRESAR_BASE` ejecutado sin condiciones adecuadas
   - **Producción gramatical**: `<accion> ::= REGRESAR_BASE`
-  - **Error semántico**: Ejecutar el comando `REGRESAR_BASE` sin haber realizado
+  - **ERROR SEMÁNTICO**: Ejecutar el comando `REGRESAR_BASE` sin haber realizado
     movimientos previos o sin estar en modo de vuelo activo.
   - **Manejo del error**: Validar que se hayan realizado movimientos previos o
     que el dron esté en un estado adecuado para regresar a la base. Si no,
@@ -701,7 +707,7 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
 
 - 5. Bajar más de lo que se ha subido
   - **Producción gramatical**: `<accion> ::= BAJAR <cantidad>`
-  - **Error semántico**: Intentar bajar el dron una cantidad mayor a la que
+  - **ERROR SEMÁNTICO**: Intentar bajar el dron una cantidad mayor a la que
     previamente se elevó.
   - **Manejo del error**: Verificar la altura actual del dron antes de permitir
     un movimiento descendente. Si la cantidad a bajar supera la altura acumulada
@@ -715,7 +721,7 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
     - `<accion> ::= GIRAR <direccion> <cantidad>`
     - `ELEVARSE <cantidad>`
     - `ROTAR <direccion> <cantidad>`
-  - **Error semántico**: Intentar mover el dron en cualquier dirección más allá
+  - **ERROR SEMÁNTICO**: Intentar mover el dron en cualquier dirección más allá
     de los límites físicos o de seguridad establecidos.
   - **Manejo del error**: Antes de ejecutar movimientos, verificar que las
     dimensiones del movimiento no excedan los límites establecidos. Si se
@@ -730,7 +736,7 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
     - `ROTAR <direccion> <cantidad>`
     - `ELEVARSE <cantidad>`
     - `BAJAR <cantidad>`
-  - **Error semántico**: Intentar mover el dron una cantidad negativa o cero
+  - **ERROR SEMÁNTICO**: Intentar mover el dron una cantidad negativa o cero
     grados.
   - **Manejo del error**: Validar que la cantidad especificada para mover el
     dron sea mayor a cero. Si se ingresa una cantidad no válida, generar un
@@ -742,9 +748,488 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
 ### Casos que NO son errores semanticos (pero parecen)
 
 - Uso de valores no numéricos en comandos que requieren números
-  - Esto no es un error semántico, ya que nuestra gramática especificamente
+  - Esto no es un ERROR SEMÁNTICO, ya que nuestra gramática especificamente
     solicita que la cantidad sea un número
 - Comando `GIRAR` o `ROTAR` sin especificación de dirección o cantidad
-  - Esto no es un error semántico, ya que la gramática solicita que se ingrese
+  - Esto no es un ERROR SEMÁNTICO, ya que la gramática solicita que se ingrese
     una dirección y cantidad al ingresar cualquiera de los comandos GIRAR o
     ROTAR
+
+<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
+
+## Tarea 5: Entrega Final
+
+### Participantes tarea 5
+
+| Nombre         | Participación |
+| -------------- | ------------- |
+| Christian Arzu | 100%          |
+| Bryan Orellana | 100%          |
+
+### Descripcion tarea 5
+
+- Elaborar un compilador para un lenguaje que permita controlar un DRON.
+- Presentar el proyecto con el siguiente contenido:
+  - Herramienta utilizada y ¿por qué?
+  - Gramática del lenguaje
+  - Reglas semánticas más importantes
+  - Evidencias de la ejecución
+
+### Herramienta utilizada y porque
+
+- Como vimos en clase, y citamos textualmente
+- "Herramientas para construir y desarrollar compiladores, las cuales están
+  especializadas en las diferentes fases del proceso de compilación."
+- | Tradicionales | Nueva generación |
+  | ------------- | ---------------- |
+  | Goldparser    | ANTLR            |
+  | Yacc          | JAVACC           |
+  | Cup           |                  |
+- No todos en el grupo utilizamos el mismo sistema operativo, algunos utilizan
+  macOS otros windows, otros Linux por lo que estuvimos buscando una herramienta
+  compatible para varios sistemas operativos y que fuera fácil de utilizar
+- Después de investigar y comparar las diferentes opciones, decidimos utilizar
+  ANTLR (ANother Tool for Language Recognition) por las siguientes razones:
+  - Es una herramienta de nueva generación ampliamente utilizada y la
+    documentación que encontramos es buena.
+  - Tiene soporte multiplataforma, cosa que era muy importante y nos permite
+    trabajar en diferentes sistemas operativos sin problemas de compatibilidad.
+  - Ofrece integración con varios lenguajes de programación, incluyendo Java,
+    que es el lenguaje que estamos utilizando para este proyecto.
+
+<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
+
+### Gramatica del lenguaje
+
+- Partiendo de la gramática original que se encuentra en el archivo
+  `comandosDron.g4` que se muestra a continuación
+
+```java
+grammar comandosDron;
+
+// Definición de la estructura de los comandos
+comando
+    : accion EOF
+    ;
+
+accion
+    : ENCENDER_MOTOR
+    | APAGAR_MOTOR
+    | GIRAR direccion cantidad // 'GIRAR' requiere una dirección y una cantidad
+    | ELEVARSE cantidad
+    | BAJAR cantidad
+    | ROTAR direccion cantidad // 'ROTAR' también requiere una dirección y una cantidad
+    | REGRESAR_BASE
+    ;
+
+direccion: DERECHA | IZQUIERDA | ADELANTE | ATRAS;
+cantidad: NUMERO;
+
+// Tokens
+ENCENDER_MOTOR : 'ENCENDER_MOTOR';
+APAGAR_MOTOR   : 'APAGAR_MOTOR';
+GIRAR          : 'GIRAR';
+ELEVARSE       : 'ELEVARSE';
+BAJAR          : 'BAJAR';
+ROTAR          : 'ROTAR';
+REGRESAR_BASE  : 'REGRESAR_BASE';
+DERECHA        : 'DERECHA';
+IZQUIERDA      : 'IZQUIERDA';
+ADELANTE       : 'ADELANTE';
+ATRAS          : 'ATRAS';
+NUMERO         : [0-9]+ ('.' [0-9]+)?;
+WS             : [ \t\r\n]+ -> skip; // Ignorar espacios en blanco
+```
+
+- Vamos a hacer modificaciones para agregar la lógica de las reglas semánticas y
+  acciones personalizadas utilizando un listener.
+- Esto permitirá realizar validaciones y ejecutar acciones específicas para cada
+  comando reconocido por la gramática
+- Con los cambios realizados, el archivo `comandosDron.g4` queda de la siguiente
+  manera:
+
+```java
+grammar comandosDron;
+
+// Definir un bloque de código que se insertará como un miembro de la clase del parser generada
+
+// Definir un bloque de código que se insertará como un miembro de la clase del parser generada
+@parser::members {
+    // Crear una instancia del listener DroneListener y del contexto DroneContext
+    // para realizar acciones y validaciones personalizadas durante el análisis sintáctico.
+    //
+    // El listener se encargará de manejar las reglas semánticas y las acciones específicas
+    // para cada comando reconocido por la gramática, utilizando el contexto del dron.
+    private DroneListener droneListener = new DroneListener(new DroneContext());
+}
+
+comando
+    : accion EOF
+    ;
+
+accion
+    : ENCENDER_MOTOR
+    | APAGAR_MOTOR
+    // Notar que GIRAR utiliza 'direccionGiro'
+    | GIRAR direccionGiro cantidad
+    | ELEVARSE cantidad
+    | BAJAR cantidad
+    // Notar que ROTAR utiliza 'direccionRotacion'
+    | ROTAR direccionRotacion cantidad
+    | REGRESAR_BASE
+    | HELP
+    | STATUS
+    ;
+
+// Modificamos el parámetro 'dirección' y agregamos direcciónGiro y
+// direccionRotacion
+direccionGiro: DERECHA | IZQUIERDA;
+direccionRotacion: ADELANTE | ATRAS;
+cantidad: NUMERO;
+
+// Tokens
+// Agregamos 2 nuevos tokens, 'HELP' y 'STATUS'
+HELP           : 'help';
+STATUS         : 'status';
+ENCENDER_MOTOR : 'encender_motor';
+APAGAR_MOTOR   : 'apagar_motor';
+GIRAR          : 'girar';
+ELEVARSE       : 'elevarse';
+BAJAR          : 'bajar';
+ROTAR          : 'rotar';
+REGRESAR_BASE  : 'regresar_base';
+DERECHA        : 'derecha';
+IZQUIERDA      : 'izquierda';
+ADELANTE       : 'adelante';
+ATRAS          : 'atras';
+NUMERO         : [0-9]+ ('.' [0-9]+)?;
+WS             : [ \t\r\n]+ -> skip; // Ignorar espacios en blanco
+```
+
+- Después creamos la clase `DroneContext` que representa el contexto del dron y
+  contiene la información relevante
+- Para esto creamos el archivo `DroneContext.java` en el directorio principal
+
+```java
+public class DroneContext {
+    private boolean motorEncendido = false;
+    private int alturaActual = 0;
+
+    public boolean getMotorEncendido() {
+        return motorEncendido;
+    }
+
+    public void setMotorEncendido(boolean motorEncendido) {
+        this.motorEncendido = motorEncendido;
+    }
+
+    public int getAlturaActual() {
+        return alturaActual;
+    }
+
+    public void setAlturaActual(int alturaActual) {
+        this.alturaActual = alturaActual;
+    }
+}
+```
+
+<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
+
+- Después creamos la clase `DroneListener` que extiende la clase base generada
+  por ANTLR (`comandosDronBaseListener`) y define el método `exitAccion` para
+  implementar las reglas semánticas y las acciones personalizadas
+  - Para esto creamos el archivo `DroneListener.java` en el directorio principal
+
+```java
+public class DroneListener extends comandosDronBaseListener {
+    private DroneContext droneContext;
+
+    public DroneListener(DroneContext droneContext) {
+        this.droneContext = droneContext;
+    }
+
+    @Override
+    public void exitAccion(comandosDronParser.AccionContext ctx) {
+        if (ctx.ENCENDER_MOTOR() != null) {
+            encenderMotor();
+        } else if (ctx.APAGAR_MOTOR() != null) {
+            apagarMotor();
+        } else if (ctx.ELEVARSE() != null) {
+            elevarse(ctx.cantidad().getText());
+        } else if (ctx.BAJAR() != null) {
+            bajar(ctx.cantidad().getText());
+        } else if (ctx.GIRAR() != null) {
+            girar(ctx.direccionGiro().getText(), ctx.cantidad().getText());
+        } else if (ctx.ROTAR() != null) {
+            rotar(ctx.direccionRotacion().getText(), ctx.cantidad().getText());
+        } else if (ctx.REGRESAR_BASE() != null) {
+            regresarBase();
+        } else if (ctx.HELP() != null) {
+            mostrarAyuda();
+        } else if (ctx.STATUS() != null) {
+            mostrarEstado();
+
+    }
+        // System.out.println("Comando procesado: " + ctx.getText());
+    }
+
+    private void encenderMotor() {
+        if (droneContext.getMotorEncendido()) {
+            System.out.println("ERROR SEMÁNTICO: El motor ya está encendido.");
+        } else {
+            droneContext.setMotorEncendido(true);
+            System.out.println("Motor encendido");
+        }
+    }
+
+    private void apagarMotor() {
+        if (!droneContext.getMotorEncendido()) {
+            System.out.println("ERROR SEMÁNTICO: El motor ya está apagado.");
+        } else {
+            if (droneContext.getAlturaActual() != 0) {
+                int alturaActual = droneContext.getAlturaActual();
+                System.out.println("ERROR SEMÁNTICO: No se puede apagar el motor si el dron no está en la base. Altura actual: " + alturaActual + " unidades.");
+            } else {
+                droneContext.setMotorEncendido(false);
+                System.out.println("Motor apagado");
+            }
+        }
+    }
+
+    private void elevarse(String cantidadStr) {
+        if (!droneContext.getMotorEncendido()) {
+            System.out.println("ERROR SEMÁNTICO: No se puede elevar el dron con el motor apagado.");
+        } else {
+            int cantidad = Integer.parseInt(cantidadStr);
+            int nuevaAltura = droneContext.getAlturaActual() + cantidad;
+            if (nuevaAltura > 300) {
+                System.out.println("ERROR SEMÁNTICO: No se puede elevar el dron por encima de 300 unidades.");
+            } else {
+                droneContext.setAlturaActual(nuevaAltura);
+                System.out.println("El dron se elevó " + cantidad + " unidades.");
+            }
+        }
+    }
+
+    private void bajar(String cantidadStr) {
+        if (!droneContext.getMotorEncendido()) {
+            System.out.println("ERROR SEMÁNTICO: No se puede bajar el dron con el motor apagado.");
+        } else {
+            int cantidad = Integer.parseInt(cantidadStr);
+            int nuevaAltura = droneContext.getAlturaActual() - cantidad;
+            if (nuevaAltura < 0) {
+                System.out.println("ERROR SEMÁNTICO: No se puede bajar el dron por debajo de la altura cero.");
+            } else {
+                droneContext.setAlturaActual(nuevaAltura);
+                System.out.println("El dron bajó " + cantidad + " unidades.");
+            }
+        }
+    }
+
+    private void girar(String direccionGiro, String cantidadStr) {
+        if (!droneContext.getMotorEncendido()) {
+            System.out.println("ERROR SEMÁNTICO: No se puede girar el dron con el motor apagado.");
+        } else {
+            int cantidad = Integer.parseInt(cantidadStr);
+            System.out.println("Giró " + cantidad + " grados hacia " + direccionGiro + ".");
+        }
+    }
+
+    private void rotar(String direccionRotacion, String cantidadStr) {
+        if (!droneContext.getMotorEncendido()) {
+            System.out.println("ERROR SEMÁNTICO: No se puede rotar el dron con el motor apagado.");
+        } else {
+            int cantidad = Integer.parseInt(cantidadStr);
+            System.out.println("Rotó " + cantidad + " metros hacia " + direccionRotacion + ".");
+        }
+    }
+
+    private void regresarBase() {
+        if (!droneContext.getMotorEncendido()) {
+            System.out.println("ERROR SEMÁNTICO: No se puede regresar a la base con el motor apagado.");
+        } else {
+            System.out.println("El dron está regresando a la base.");
+            droneContext.setAlturaActual(0);
+        }
+    }
+
+    private void mostrarAyuda() {
+      System.out.println("comandos disponibles:");
+      System.out.println("- encender_motor");
+      System.out.println("- apagar_motor");
+      System.out.println("- elevarse <cantidad>");
+      System.out.println("- bajar <cantidad>");
+      System.out.println("- girar <direccionGiro> <cantidad>");
+      System.out.println("  - girar derecha|izquierda grados");
+      System.out.println("  - girar derecha 90");
+      System.out.println("  - Gira el dron 90 grados hacia la derecha");
+      System.out.println("- rotar <direccionRotacion> <cantidad>");
+      System.out.println("  - rotar adelante|atras metros");
+      System.out.println("  - rotar adelante 30");
+      System.out.println("  - mueve el dron 30 metros hacia adelante");
+      System.out.println("- regresar_base");
+      System.out.println("- help");
+    }
+
+    private void mostrarEstado() {
+        String estado = droneContext.getMotorEncendido() ? "Encendido" : "Apagado";
+        int alturaActual = droneContext.getAlturaActual();
+
+        System.out.println("Estado del dron:");
+        System.out.println("- Motor: " + estado);
+        System.out.println("- Altura actual: " + alturaActual + " unidades");
+    }
+}
+```
+
+<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
+
+- Después creamos la clase principal `Main` donde se instancia el lexer, el
+  parser, el listener y se procesa la entrada
+  - Para esto creamos el archivo `Main.java` en el directorio principal
+
+```java
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        DroneContext droneContext = new DroneContext();
+        DroneListener droneListener = new DroneListener(droneContext);
+
+        while (true) {
+            System.out.print("> ");
+            String input = reader.readLine();
+            if (input == null || input.equals("exit")) {
+                break;
+            }
+
+            ANTLRInputStream antlrInput = new ANTLRInputStream(input);
+            comandosDronLexer lexer = new comandosDronLexer(antlrInput);
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            comandosDronParser parser = new comandosDronParser(tokens);
+            ParseTree tree = parser.comando();
+
+            ParseTreeWalker.DEFAULT.walk(droneListener, tree);
+
+            // Agregamos una linea en blanco entre comandos
+            System.out.println();
+        }
+    }
+}
+```
+
+- Después de esto generamos los archivos de parser y lexer a partir del archivo
+  de la gramática
+- Compilamos todos los archivos Java, incluyendo los generados por ANTLR y los
+  que creamos (DroneContext.java, DroneListener.java y Main.java)
+- **Cada vez que relizamos cambios, compilamos con estos 2 comandos**
+
+```bash
+antlr4 comandosDron.g4
+javac *.java
+```
+
+- Una vez que la compilación sea exitosa, ejecutamos la clase `Main` utilizando
+  el comando java
+
+```java
+java Main
+```
+
+<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
+
+### Evidencias de la ejecucion
+
+```bash
+❯ java Main
+
+> status
+Estado del dron:
+- Motor: Apagado
+- Altura actual: 0 unidades
+
+> help
+comandos disponibles:
+- encender_motor
+- apagar_motor
+- elevarse <cantidad>
+- bajar <cantidad>
+- girar <direccionGiro> <cantidad>
+  - girar derecha|izquierda grados
+  - girar derecha 90
+  - Gira el dron 90 grados hacia la derecha
+- rotar <direccionRotacion> <cantidad>
+  - rotar adelante|atras metros
+  - rotar adelante 30
+  - mueve el dron 30 metros hacia adelante
+- regresar_base
+- help
+
+> apagar_motor
+ERROR SEMÁNTICO: El motor ya está apagado.
+
+> encender_motor
+
+Motor encendido
+> status
+Estado del dron:
+- Motor: Encendido
+- Altura actual: 0 unidades
+
+> elevarse 400
+ERROR SEMÁNTICO: No se puede elevar el dron por encima de 300 unidades.
+
+> status
+Estado del dron:
+- Motor: Encendido
+- Altura actual: 0 unidades
+
+> elevarse 299
+El dron se elevó 299 unidades.
+
+> status
+Estado del dron:
+- Motor: Encendido
+- Altura actual: 299 unidades
+> elevarse 2
+
+ERROR SEMÁNTICO: No se puede elevar el dron por encima de 300 unidades.
+
+> status
+Estado del dron:
+- Motor: Encendido
+- Altura actual: 299 unidades
+
+> regresar_base
+El dron está regresando a la base.
+
+> status
+Estado del dron:
+- Motor: Encendido
+- Altura actual: 0 unidades
+
+> apagar_motor
+Motor apagado
+
+> eeeencender_motor
+line 1:0 token recognition error at: 'ee'
+line 1:2 token recognition error at: 'ee'
+line 1:4 token recognition error at: 'n'
+line 1:5 token recognition error at: 'c'
+line 1:6 token recognition error at: 'end'
+line 1:9 token recognition error at: 'er'
+line 1:11 token recognition error at: '_'
+line 1:12 token recognition error at: 'm'
+line 1:13 token recognition error at: 'o'
+line 1:14 token recognition error at: 't'
+line 1:15 token recognition error at: 'o'
+line 1:16 token recognition error at: 'r'
+line 1:17 mismatched input '<EOF>' expecting {'help', 'status', 'encender_motor', 'apagar_motor', 'girar', 'elevarse', 'bajar', 'rotar', 'regresar_base'}
+```

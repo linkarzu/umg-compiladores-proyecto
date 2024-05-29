@@ -16,31 +16,32 @@ public class comandosDronParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		ENCENDER_MOTOR=1, APAGAR_MOTOR=2, GIRAR=3, ELEVARSE=4, BAJAR=5, ROTAR=6, 
-		REGRESAR_BASE=7, DERECHA=8, IZQUIERDA=9, ADELANTE=10, ATRAS=11, NUMERO=12, 
-		WS=13;
+		HELP=1, STATUS=2, ENCENDER_MOTOR=3, APAGAR_MOTOR=4, GIRAR=5, ELEVARSE=6, 
+		BAJAR=7, ROTAR=8, REGRESAR_BASE=9, DERECHA=10, IZQUIERDA=11, ADELANTE=12, 
+		ATRAS=13, NUMERO=14, WS=15;
 	public static final int
-		RULE_comando = 0, RULE_accion = 1, RULE_direccion = 2, RULE_cantidad = 3;
+		RULE_comando = 0, RULE_accion = 1, RULE_direccionGiro = 2, RULE_direccionRotacion = 3, 
+		RULE_cantidad = 4;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"comando", "accion", "direccion", "cantidad"
+			"comando", "accion", "direccionGiro", "direccionRotacion", "cantidad"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'ENCENDER_MOTOR'", "'APAGAR_MOTOR'", "'GIRAR'", "'ELEVARSE'", 
-			"'BAJAR'", "'ROTAR'", "'REGRESAR_BASE'", "'DERECHA'", "'IZQUIERDA'", 
-			"'ADELANTE'", "'ATRAS'"
+			null, "'help'", "'status'", "'encender_motor'", "'apagar_motor'", "'girar'", 
+			"'elevarse'", "'bajar'", "'rotar'", "'regresar_base'", "'derecha'", "'izquierda'", 
+			"'adelante'", "'atras'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "ENCENDER_MOTOR", "APAGAR_MOTOR", "GIRAR", "ELEVARSE", "BAJAR", 
-			"ROTAR", "REGRESAR_BASE", "DERECHA", "IZQUIERDA", "ADELANTE", "ATRAS", 
-			"NUMERO", "WS"
+			null, "HELP", "STATUS", "ENCENDER_MOTOR", "APAGAR_MOTOR", "GIRAR", "ELEVARSE", 
+			"BAJAR", "ROTAR", "REGRESAR_BASE", "DERECHA", "IZQUIERDA", "ADELANTE", 
+			"ATRAS", "NUMERO", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -89,6 +90,14 @@ public class comandosDronParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
+
+	    // Crear una instancia del listener DroneListener y del contexto DroneContext
+	    // para realizar acciones y validaciones personalizadas durante el análisis sintáctico.
+	    //
+	    // El listener se encargará de manejar las reglas semánticas y las acciones específicas
+	    // para cada comando reconocido por la gramática, utilizando el contexto del dron.
+	    private DroneListener droneListener = new DroneListener(new DroneContext());
+
 	public comandosDronParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
@@ -120,9 +129,9 @@ public class comandosDronParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(8);
+			setState(10);
 			accion();
-			setState(9);
+			setState(11);
 			match(EOF);
 			}
 		}
@@ -142,8 +151,8 @@ public class comandosDronParser extends Parser {
 		public TerminalNode ENCENDER_MOTOR() { return getToken(comandosDronParser.ENCENDER_MOTOR, 0); }
 		public TerminalNode APAGAR_MOTOR() { return getToken(comandosDronParser.APAGAR_MOTOR, 0); }
 		public TerminalNode GIRAR() { return getToken(comandosDronParser.GIRAR, 0); }
-		public DireccionContext direccion() {
-			return getRuleContext(DireccionContext.class,0);
+		public DireccionGiroContext direccionGiro() {
+			return getRuleContext(DireccionGiroContext.class,0);
 		}
 		public CantidadContext cantidad() {
 			return getRuleContext(CantidadContext.class,0);
@@ -151,7 +160,12 @@ public class comandosDronParser extends Parser {
 		public TerminalNode ELEVARSE() { return getToken(comandosDronParser.ELEVARSE, 0); }
 		public TerminalNode BAJAR() { return getToken(comandosDronParser.BAJAR, 0); }
 		public TerminalNode ROTAR() { return getToken(comandosDronParser.ROTAR, 0); }
+		public DireccionRotacionContext direccionRotacion() {
+			return getRuleContext(DireccionRotacionContext.class,0);
+		}
 		public TerminalNode REGRESAR_BASE() { return getToken(comandosDronParser.REGRESAR_BASE, 0); }
+		public TerminalNode HELP() { return getToken(comandosDronParser.HELP, 0); }
+		public TerminalNode STATUS() { return getToken(comandosDronParser.STATUS, 0); }
 		public AccionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -170,68 +184,82 @@ public class comandosDronParser extends Parser {
 		AccionContext _localctx = new AccionContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_accion);
 		try {
-			setState(26);
+			setState(30);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ENCENDER_MOTOR:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(11);
+				setState(13);
 				match(ENCENDER_MOTOR);
 				}
 				break;
 			case APAGAR_MOTOR:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(12);
+				setState(14);
 				match(APAGAR_MOTOR);
 				}
 				break;
 			case GIRAR:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(13);
-				match(GIRAR);
-				setState(14);
-				direccion();
 				setState(15);
+				match(GIRAR);
+				setState(16);
+				direccionGiro();
+				setState(17);
 				cantidad();
 				}
 				break;
 			case ELEVARSE:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(17);
+				setState(19);
 				match(ELEVARSE);
-				setState(18);
+				setState(20);
 				cantidad();
 				}
 				break;
 			case BAJAR:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(19);
+				setState(21);
 				match(BAJAR);
-				setState(20);
+				setState(22);
 				cantidad();
 				}
 				break;
 			case ROTAR:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(21);
-				match(ROTAR);
-				setState(22);
-				direccion();
 				setState(23);
+				match(ROTAR);
+				setState(24);
+				direccionRotacion();
+				setState(25);
 				cantidad();
 				}
 				break;
 			case REGRESAR_BASE:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(25);
+				setState(27);
 				match(REGRESAR_BASE);
+				}
+				break;
+			case HELP:
+				enterOuterAlt(_localctx, 8);
+				{
+				setState(28);
+				match(HELP);
+				}
+				break;
+			case STATUS:
+				enterOuterAlt(_localctx, 9);
+				{
+				setState(29);
+				match(STATUS);
 				}
 				break;
 			default:
@@ -250,35 +278,81 @@ public class comandosDronParser extends Parser {
 	}
 
 	@SuppressWarnings("CheckReturnValue")
-	public static class DireccionContext extends ParserRuleContext {
+	public static class DireccionGiroContext extends ParserRuleContext {
 		public TerminalNode DERECHA() { return getToken(comandosDronParser.DERECHA, 0); }
 		public TerminalNode IZQUIERDA() { return getToken(comandosDronParser.IZQUIERDA, 0); }
-		public TerminalNode ADELANTE() { return getToken(comandosDronParser.ADELANTE, 0); }
-		public TerminalNode ATRAS() { return getToken(comandosDronParser.ATRAS, 0); }
-		public DireccionContext(ParserRuleContext parent, int invokingState) {
+		public DireccionGiroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_direccion; }
+		@Override public int getRuleIndex() { return RULE_direccionGiro; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof comandosDronListener ) ((comandosDronListener)listener).enterDireccion(this);
+			if ( listener instanceof comandosDronListener ) ((comandosDronListener)listener).enterDireccionGiro(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof comandosDronListener ) ((comandosDronListener)listener).exitDireccion(this);
+			if ( listener instanceof comandosDronListener ) ((comandosDronListener)listener).exitDireccionGiro(this);
 		}
 	}
 
-	public final DireccionContext direccion() throws RecognitionException {
-		DireccionContext _localctx = new DireccionContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_direccion);
+	public final DireccionGiroContext direccionGiro() throws RecognitionException {
+		DireccionGiroContext _localctx = new DireccionGiroContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_direccionGiro);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(28);
+			setState(32);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 3840L) != 0)) ) {
+			if ( !(_la==DERECHA || _la==IZQUIERDA) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class DireccionRotacionContext extends ParserRuleContext {
+		public TerminalNode ADELANTE() { return getToken(comandosDronParser.ADELANTE, 0); }
+		public TerminalNode ATRAS() { return getToken(comandosDronParser.ATRAS, 0); }
+		public DireccionRotacionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_direccionRotacion; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof comandosDronListener ) ((comandosDronListener)listener).enterDireccionRotacion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof comandosDronListener ) ((comandosDronListener)listener).exitDireccionRotacion(this);
+		}
+	}
+
+	public final DireccionRotacionContext direccionRotacion() throws RecognitionException {
+		DireccionRotacionContext _localctx = new DireccionRotacionContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_direccionRotacion);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(34);
+			_la = _input.LA(1);
+			if ( !(_la==ADELANTE || _la==ATRAS) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -318,11 +392,11 @@ public class comandosDronParser extends Parser {
 
 	public final CantidadContext cantidad() throws RecognitionException {
 		CantidadContext _localctx = new CantidadContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_cantidad);
+		enterRule(_localctx, 8, RULE_cantidad);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(30);
+			setState(36);
 			match(NUMERO);
 			}
 		}
@@ -338,30 +412,34 @@ public class comandosDronParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\r!\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
-		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0001\u0000\u0001"+
-		"\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0004\u0001\u000f\'\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0001"+
+		"\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001\u001b\b\u0001\u0001"+
-		"\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0000\u0000\u0004"+
-		"\u0000\u0002\u0004\u0006\u0000\u0001\u0001\u0000\b\u000b\"\u0000\b\u0001"+
-		"\u0000\u0000\u0000\u0002\u001a\u0001\u0000\u0000\u0000\u0004\u001c\u0001"+
-		"\u0000\u0000\u0000\u0006\u001e\u0001\u0000\u0000\u0000\b\t\u0003\u0002"+
-		"\u0001\u0000\t\n\u0005\u0000\u0000\u0001\n\u0001\u0001\u0000\u0000\u0000"+
-		"\u000b\u001b\u0005\u0001\u0000\u0000\f\u001b\u0005\u0002\u0000\u0000\r"+
-		"\u000e\u0005\u0003\u0000\u0000\u000e\u000f\u0003\u0004\u0002\u0000\u000f"+
-		"\u0010\u0003\u0006\u0003\u0000\u0010\u001b\u0001\u0000\u0000\u0000\u0011"+
-		"\u0012\u0005\u0004\u0000\u0000\u0012\u001b\u0003\u0006\u0003\u0000\u0013"+
-		"\u0014\u0005\u0005\u0000\u0000\u0014\u001b\u0003\u0006\u0003\u0000\u0015"+
-		"\u0016\u0005\u0006\u0000\u0000\u0016\u0017\u0003\u0004\u0002\u0000\u0017"+
-		"\u0018\u0003\u0006\u0003\u0000\u0018\u001b\u0001\u0000\u0000\u0000\u0019"+
-		"\u001b\u0005\u0007\u0000\u0000\u001a\u000b\u0001\u0000\u0000\u0000\u001a"+
-		"\f\u0001\u0000\u0000\u0000\u001a\r\u0001\u0000\u0000\u0000\u001a\u0011"+
-		"\u0001\u0000\u0000\u0000\u001a\u0013\u0001\u0000\u0000\u0000\u001a\u0015"+
-		"\u0001\u0000\u0000\u0000\u001a\u0019\u0001\u0000\u0000\u0000\u001b\u0003"+
-		"\u0001\u0000\u0000\u0000\u001c\u001d\u0007\u0000\u0000\u0000\u001d\u0005"+
-		"\u0001\u0000\u0000\u0000\u001e\u001f\u0005\f\u0000\u0000\u001f\u0007\u0001"+
-		"\u0000\u0000\u0000\u0001\u001a";
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0003\u0001\u001f\b\u0001\u0001\u0002\u0001\u0002\u0001"+
+		"\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0000\u0000\u0005"+
+		"\u0000\u0002\u0004\u0006\b\u0000\u0002\u0001\u0000\n\u000b\u0001\u0000"+
+		"\f\r)\u0000\n\u0001\u0000\u0000\u0000\u0002\u001e\u0001\u0000\u0000\u0000"+
+		"\u0004 \u0001\u0000\u0000\u0000\u0006\"\u0001\u0000\u0000\u0000\b$\u0001"+
+		"\u0000\u0000\u0000\n\u000b\u0003\u0002\u0001\u0000\u000b\f\u0005\u0000"+
+		"\u0000\u0001\f\u0001\u0001\u0000\u0000\u0000\r\u001f\u0005\u0003\u0000"+
+		"\u0000\u000e\u001f\u0005\u0004\u0000\u0000\u000f\u0010\u0005\u0005\u0000"+
+		"\u0000\u0010\u0011\u0003\u0004\u0002\u0000\u0011\u0012\u0003\b\u0004\u0000"+
+		"\u0012\u001f\u0001\u0000\u0000\u0000\u0013\u0014\u0005\u0006\u0000\u0000"+
+		"\u0014\u001f\u0003\b\u0004\u0000\u0015\u0016\u0005\u0007\u0000\u0000\u0016"+
+		"\u001f\u0003\b\u0004\u0000\u0017\u0018\u0005\b\u0000\u0000\u0018\u0019"+
+		"\u0003\u0006\u0003\u0000\u0019\u001a\u0003\b\u0004\u0000\u001a\u001f\u0001"+
+		"\u0000\u0000\u0000\u001b\u001f\u0005\t\u0000\u0000\u001c\u001f\u0005\u0001"+
+		"\u0000\u0000\u001d\u001f\u0005\u0002\u0000\u0000\u001e\r\u0001\u0000\u0000"+
+		"\u0000\u001e\u000e\u0001\u0000\u0000\u0000\u001e\u000f\u0001\u0000\u0000"+
+		"\u0000\u001e\u0013\u0001\u0000\u0000\u0000\u001e\u0015\u0001\u0000\u0000"+
+		"\u0000\u001e\u0017\u0001\u0000\u0000\u0000\u001e\u001b\u0001\u0000\u0000"+
+		"\u0000\u001e\u001c\u0001\u0000\u0000\u0000\u001e\u001d\u0001\u0000\u0000"+
+		"\u0000\u001f\u0003\u0001\u0000\u0000\u0000 !\u0007\u0000\u0000\u0000!"+
+		"\u0005\u0001\u0000\u0000\u0000\"#\u0007\u0001\u0000\u0000#\u0007\u0001"+
+		"\u0000\u0000\u0000$%\u0005\u000e\u0000\u0000%\t\u0001\u0000\u0000\u0000"+
+		"\u0001\u001e";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
