@@ -755,8 +755,6 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
     una dirección y cantidad al ingresar cualquiera de los comandos GIRAR o
     ROTAR
 
-<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
-
 ## Tarea 5: Entrega Final
 
 ### Participantes tarea 5
@@ -796,8 +794,6 @@ echo 'REGRESAR_BASE' | grun comandosDron comando -gui
     trabajar en diferentes sistemas operativos sin problemas de compatibilidad.
   - Ofrece integración con varios lenguajes de programación, incluyendo Java,
     que es el lenguaje que estamos utilizando para este proyecto.
-
-<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
 
 ### Gramatica del lenguaje
 
@@ -850,8 +846,6 @@ WS             : [ \t\r\n]+ -> skip; // Ignorar espacios en blanco
 
 ```java
 grammar comandosDron;
-
-// Definir un bloque de código que se insertará como un miembro de la clase del parser generada
 
 // Definir un bloque de código que se insertará como un miembro de la clase del parser generada
 @parser::members {
@@ -932,8 +926,6 @@ public class DroneContext {
     }
 }
 ```
-
-<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
 
 - Después creamos la clase `DroneListener` que extiende la clase base generada
   por ANTLR (`comandosDronBaseListener`) y define el método `exitAccion` para
@@ -1082,8 +1074,6 @@ public class DroneListener extends comandosDronBaseListener {
 }
 ```
 
-<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
-
 - Después creamos la clase principal `Main` donde se instancia el lexer, el
   parser, el listener y se procesa la entrada
   - Para esto creamos el archivo `Main.java` en el directorio principal
@@ -1142,8 +1132,6 @@ javac *.java
 ```java
 java Main
 ```
-
-<div style="page-break-after: always; visibility: hidden"> \pagebreak </div>
 
 ### Evidencias de la ejecucion
 
